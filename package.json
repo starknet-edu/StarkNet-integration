@@ -4,7 +4,7 @@
   "description": "Snippets to help exchanges integrate StarkNet",
   "main": "main.js",
   "dependencies": {
-    "@types/node": "^17.0.41",
+    "@types/node": "^17.0.42",
     "starknet": "^3.9.0"
   },
   "devDependencies": {
