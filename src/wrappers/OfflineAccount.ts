@@ -1,7 +1,6 @@
 import {
   Account,
   number,
-  hash,
   KeyPair,
   ProviderInterface,
   SignerInterface,
