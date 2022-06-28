@@ -29,7 +29,8 @@ export class OfflineAccount extends Account {
   public async signTx(
     targetContract: string,
     entrypoint: string,
-    txCalldata: number.BigNumberish[]
+    txCalldata: number.BigNumberish[],
+    nonce?: string
   ): Promise<Transaction> {
     const invocation = {
       contractAddress: targetContract,
@@ -37,11 +38,12 @@ export class OfflineAccount extends Account {
       calldata: txCalldata,
     };
     const { suggestedMaxFee } = await this.estimateFee(invocation);
+    nonce = nonce ?? (await this.getNonce());
 
     const transactionDetail = {
       walletAddress: this.address,
       chainId: StarknetChainId.TESTNET,
-      nonce: await this.getNonce(),
+      nonce: nonce,
       version: 0,
       maxFee: suggestedMaxFee,
     };
